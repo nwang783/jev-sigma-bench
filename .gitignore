@@ -1,0 +1,7 @@
+data/
+.venv/
+__pycache__/
+.env
+results/cache/
+results/events.jsonl
+results/sigma_run.log

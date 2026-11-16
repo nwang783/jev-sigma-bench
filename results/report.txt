@@ -1,0 +1,39 @@
+GENERIC QUESTION: 426 attack events, 11494 benign events
+  Sigma, full rule set:        recall 100.0%  benign FP 1.56%   (own rule included: true by construction)
+  Sigma, own rule removed:     recall 43.4%
+  Jev, threshold 0.5      (t=0.500): recall 66.0%  benign FP 6.42%  recall on the 241 events that Sigma misses with the own rule removed: 51.0%
+  Jev, FP at most 1%      (t=0.760): recall 34.7%  benign FP 0.92%  recall on the 241 events that Sigma misses with the own rule removed: 18.3%
+  Jev, FP at most 0.1%    (t=0.870): recall 20.4%  benign FP 0.06%  recall on the 241 events that Sigma misses with the own rule removed: 6.6%
+  Jev, FP equal to Sigma  (t=0.710): recall 40.6%  benign FP 1.55%  recall on the 241 events that Sigma misses with the own rule removed: 23.7%
+  Jev AUROC 0.901
+  By log source at threshold 0.5 (recall / benign FP):
+    file_event         63.2% / 6.95%
+    process_creation   71.5% / 10.95%
+    ps_script          61.5% / 0.00%
+    registry_set       42.9% / 2.52%
+
+CHANGED COMMAND LINES (process creation; share still detected)
+  quotes  n=174  Sigma own rule 34.5%  Sigma any rule 59.2%  Jev generic 81.0%  Jev described 93.1%
+  dash    n=42   Sigma own rule 71.4%  Sigma any rule 100.0%  Jev generic 85.7%  Jev described 83.3%
+  spaces  n=251  Sigma own rule 95.6%  Sigma any rule 99.2%  Jev generic 71.3%  Jev described 92.8%
+  case    n=247  Sigma own rule 99.6%  Sigma any rule 99.6%  Jev generic 79.8%  Jev described 94.3%
+
+DESCRIBED QUESTION (Jev gets the rule title and description)
+  405 cases: detects its attack 89.1%, fires on more than 1% of the benign sample 4.7%, both good 85.4%
+  Fires on a benign event: 0.53%
+  Fires on an attack event of a DIFFERENT rule (hard negatives): 3.0%   (some different rules describe overlapping behavior, so this is an upper bound on the error)
+
+SIGMA THEN JEV (Jev sees only events where a standard or hunting rule fired)
+  426 true alerts, 337 false alerts from 18 rules
+  pass to an analyst if p >= 0.5: true alerts kept 84.3%, false alerts removed 57.3%
+  pass to an analyst if p >= 0.2: true alerts kept 99.1%, false alerts removed 3.0%
+  pass to an analyst if p >= 0.1: true alerts kept 100.0%, false alerts removed 0.0%
+  pass to an analyst if p >= 0.05: true alerts kept 100.0%, false alerts removed 0.0%
+     152 false alerts from 'Shell Context Menu Command Tampering': removed at 0.5 83%
+     101 false alerts from 'Suspicious High IntegrityLevel Conhost Legacy Option': removed at 0.5 32%
+      22 false alerts from 'Stop Windows Service Via Net.EXE': removed at 0.5 0%
+      22 false alerts from 'EVTX Created In Uncommon Location': removed at 0.5 18%
+      10 false alerts from 'Non Interactive PowerShell Process Spawned': removed at 0.5 100%
+       6 false alerts from 'Directory Removal Via Rmdir': removed at 0.5 50%
+       4 false alerts from 'Scheduled Task Created - FileCreation': removed at 0.5 75%
+       4 false alerts from 'New Application in AppCompat': removed at 0.5 100%

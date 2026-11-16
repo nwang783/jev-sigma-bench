@@ -1,0 +1,6 @@
+[project]
+name = "jev-sigma-bench"
+version = "0.1.0"
+description = "Temporary experiment: Jev decision model against Sigma rules on Windows attack and benign events"
+requires-python = ">=3.12"
+dependencies = ["pyyaml", "evtx", "httpx", "matplotlib"]

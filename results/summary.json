@@ -1,0 +1,36 @@
+{
+  "attack_events": 426,
+  "benign_events": 33354,
+  "no_rule": {
+    "sigma_fp": 0.005366672662948972,
+    "sigma_recall": 0.43427230046948356,
+    "jev_threshold": 0.75,
+    "jev_fp": 0.0052848158524905035,
+    "jev_recall": 0.3732394366197183,
+    "both_recall": 0.5516431924882629,
+    "jev_recall_at_half": 0.6596244131455399,
+    "jev_fp_at_half": 0.05122935277593256
+  },
+  "changed_text": {
+    "quotes": {
+      "n": 174,
+      "sigma_own_rule": 0.3448275862068966,
+      "jev_described": 0.9310344827586207
+    },
+    "dash": {
+      "n": 42,
+      "sigma_own_rule": 0.7142857142857143,
+      "jev_described": 0.8333333333333334
+    },
+    "spaces": {
+      "n": 251,
+      "sigma_own_rule": 0.9561752988047809,
+      "jev_described": 0.9282868525896414
+    },
+    "case": {
+      "n": 247,
+      "sigma_own_rule": 0.9959514170040485,
+      "jev_described": 0.9433198380566802
+    }
+  }
+}

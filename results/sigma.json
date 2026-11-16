@@ -1,0 +1,110 @@
+{
+  "rules": {
+    "registry_set": 207,
+    "process_creation": 1193,
+    "file_event": 167,
+    "ps_script": 165
+  },
+  "rules_unsupported": 0,
+  "cases": {
+    "file_event": 28,
+    "ps_script": 65,
+    "process_creation": 269,
+    "registry_set": 43
+  },
+  "benign": {
+    "registry_set": 15000,
+    "process_creation": 3243,
+    "file_event": 15000,
+    "ps_script": 111
+  },
+  "attack": {
+    "events": 426,
+    "any_rule_recall": 1.0,
+    "leave_own_rule_out_recall": 0.43427230046948356,
+    "leave_own_rule_out_by_category": {
+      "file_event": 0.21052631578947367,
+      "ps_script": 0.47692307692307695,
+      "process_creation": 0.5,
+      "registry_set": 0.1836734693877551
+    }
+  },
+  "benign_result": {
+    "events": 33354,
+    "any_rule_false_positive_rate": 0.005366672662948972,
+    "by_category": {
+      "registry_set": 0.0003333333333333333,
+      "process_creation": 0.04687018193031144,
+      "file_event": 0.0014666666666666667,
+      "ps_script": 0.0
+    },
+    "rules_that_fired": 17,
+    "top_noisy_rules": [
+      {
+        "title": "Suspicious High IntegrityLevel Conhost Legacy Option",
+        "hits": 101
+      },
+      {
+        "title": "Stop Windows Service Via Net.EXE",
+        "hits": 22
+      },
+      {
+        "title": "Share And Session Enumeration Using Net.EXE",
+        "hits": 22
+      },
+      {
+        "title": "Suspicious Windows Service Tampering",
+        "hits": 22
+      },
+      {
+        "title": "EVTX Created In Uncommon Location",
+        "hits": 22
+      },
+      {
+        "title": "Non Interactive PowerShell Process Spawned",
+        "hits": 10
+      },
+      {
+        "title": "Directory Removal Via Rmdir",
+        "hits": 6
+      },
+      {
+        "title": "New Application in AppCompat",
+        "hits": 4
+      }
+    ]
+  },
+  "mutations": {
+    "quotes": {
+      "events": 174,
+      "own_rule_recall": 0.3448275862068966,
+      "any_rule_recall": 0.5919540229885057
+    },
+    "dash": {
+      "events": 42,
+      "own_rule_recall": 0.7142857142857143,
+      "any_rule_recall": 1.0
+    },
+    "spaces": {
+      "events": 251,
+      "own_rule_recall": 0.9561752988047809,
+      "any_rule_recall": 0.9920318725099602
+    },
+    "case": {
+      "events": 247,
+      "own_rule_recall": 0.9959514170040485,
+      "any_rule_recall": 0.9959514170040485
+    }
+  },
+  "hunting_rules": {
+    "rules": {
+      "registry_set": 5,
+      "process_creation": 58,
+      "file_event": 9,
+      "ps_script": 12
+    },
+    "benign_events_hit": 183,
+    "attack_events_hit": 59,
+    "benign_events_with_any_alert": 337
+  }
+}
